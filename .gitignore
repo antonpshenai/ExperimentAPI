@@ -5,3 +5,5 @@
 /.vs
 /ExperementsAPI/.vs/ExperementsAPI
 /ExperementsAPI/obj
+/ExperementsAPI/.vs/ProjectEvaluation
+/ExperementsAPI/bin/Debug/net7.0
