@@ -1,7 +1,7 @@
 # ExperimentAPI
 REST API with two endpoinds for color and price
 
-Created an API with 2+ endpoints (can be easily scalable)
+Created an API with 2 endpoints (can be easily scalable)
 ![image](https://github.com/antonpshenai/ExperimentAPI/assets/81904561/85e1ef5b-44ee-4396-b92c-e071b212b8d4)
 
 DB:
