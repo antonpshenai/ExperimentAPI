@@ -5,7 +5,12 @@ Created an API with 2 endpoints (can be easily scalable)
 ![image](https://github.com/antonpshenai/ExperimentAPI/assets/81904561/85e1ef5b-44ee-4396-b92c-e071b212b8d4)
 
 DB:
+
 ![image](https://github.com/antonpshenai/ExperimentAPI/assets/81904561/5225c0b1-7a76-4653-8c6f-4c3669fccfd0)
+Devices - all participating devices
+Experiments - all available experiments (names)
+Experiment Value - all Values for experiments (such as green color)
+Device Experiment - all experiments which have already happened
 
 The decision of such database structure was made due to the ease of adding experiments (with maintaining normalization)
 So, if new experiment appear - it is only need to be added to the configuration file with the appropriate name of the experiment (no code change)
