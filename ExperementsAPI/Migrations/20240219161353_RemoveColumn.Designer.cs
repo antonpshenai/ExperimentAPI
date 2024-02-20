@@ -4,6 +4,7 @@ using ExperementsAPI.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExperementsAPI.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240219161353_RemoveColumn")]
+    partial class RemoveColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,13 +33,13 @@ namespace ExperementsAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("DeviceId")
+                    b.Property<int>("DeviceId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ExperimentId")
+                    b.Property<int>("ExperimentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ExperimentValueId")
+                    b.Property<int>("ExperimentValueId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -111,17 +114,20 @@ namespace ExperementsAPI.Migrations
                     b.HasOne("ExperementsAPI.Model.Devices", "Device")
                         .WithMany("DeviceExperiments")
                         .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ExperementsAPI.Model.Experiments", "Experiment")
                         .WithMany("DeviceExperiments")
                         .HasForeignKey("ExperimentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ExperementsAPI.Model.ExperimentValues", "ExperimentValue")
                         .WithMany("DeviceExperiments")
                         .HasForeignKey("ExperimentValueId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Device");
 

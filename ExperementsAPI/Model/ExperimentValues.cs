@@ -13,7 +13,6 @@ namespace ExperementsAPI.Model
         public int ExperimentId { get; set; }
 
 
-
         [ForeignKey("ExperimentId")]
         public virtual Experiments? Experiments { get; set; }
 

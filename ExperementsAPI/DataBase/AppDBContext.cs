@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 namespace ExperementsAPI.DataBase
-{
+{        
     public class AppDBContext : DbContext
     {
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options) { }
@@ -12,6 +12,7 @@ namespace ExperementsAPI.DataBase
         public DbSet<DeviceExperiments> DeviceExperiments { get; set; }
         public DbSet<Experiments> Experiments { get; set; }
         public DbSet<ExperimentValues> ExperimentValues { get; set; }
+        
     }
 }
 
